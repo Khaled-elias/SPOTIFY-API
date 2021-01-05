@@ -1,10 +1,21 @@
 <%- include('./partials/head')  %> 
 
-<main>
+<main class="mainHome">
+    
     <form action="/artist-search" method="GET">
-        <input type="text" name="artistName" id="">
-        <input type="submit" value="search">
+        
+       <div id="divInputText"> <input id="inputText" type="text" name="artistName" id="">
+       </div>
+
+       <div id="divInputSubmit">
+        <input id="inputSubmit" type="submit" value="Search for an Artist">
+
+      </div>
 
     </form>
+
+
 </main>
+
+
 <%- include('./partials/footer')  %> 

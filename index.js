@@ -8,7 +8,7 @@ app.set('view engine' , 'ejs')
  
  app.use(express.static('public'))
 
- const PORT =process.env.PORT || 4000
+ const PORT =process.env.PORT || 4030
 
  const spotifyApi = new SpotifyWebApi({
     clientId: process.env.CLIENT_ID,
@@ -26,7 +26,7 @@ app.set('view engine' , 'ejs')
 
 
   app.get('/',(req,res) => {
-      res.render("index")
+      res.render("index",{ title: "Home Page"})
   })
 
   app.get('/artist-search', (req,res) => {
@@ -35,7 +35,7 @@ app.set('view engine' , 'ejs')
     .searchArtists(req.query.artistName)
     .then((data) => {
       console.log( data.body.artists.items);
-     res.render('artistSearch', {artistData: data.body.artists.items});
+     res.render('artistSearch', {artistData: data.body.artists.items, title: " Artist"});
     })
     .catch((err) => console.log('The error while searching artists occurred: ', err));
   
@@ -47,7 +47,7 @@ app.set('view engine' , 'ejs')
     .getArtistAlbums(req.params.id)
         .then((data2) => {
            
-            res.render(`albums`, { artistData2: data2.body.items, title: "My atristName" })
+            res.render(`albums`, { artistData2: data2.body.items, title: "Albums" })
         })
         .catch((err) =>
             console.log(`The error while searching artists occurred: `, err)
@@ -60,7 +60,7 @@ app.get('/tracks/:id', (req, res, next) => {
     .getAlbumTracks(req.params.id)
         .then((data3) => {
            
-            res.render(`tracks`, { artistData3: data3.body.items, title: "My atristName" })
+            res.render(`tracks`, { artistData3: data3.body.items, title: "Tracks" })
         })
         .catch((err) =>
             console.log(`The error while searching artists occurred: `, err)

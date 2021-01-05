@@ -1,12 +1,13 @@
 <%- include('./partials/head')  %> 
 
 
-<main class="main">
-    <section class="boxes">
+<main class="mainTracks">
+    <section class="boxesTracks">
         <%artistData3.forEach(element=>{%>
             <figure>
-                <figcaption><%= element.name %> </figcaption>
+                <figcaption class="figTracks"><%= element.name %> </figcaption>
                 <audio
+                
                     controls
                     src="<%= element.preview_url %> ">
                         Your browser does not support the
@@ -16,6 +17,8 @@
         <%})%>
     </section>
 </main>
+
+
 
 
 <%- include('./partials/footer')  %> 
