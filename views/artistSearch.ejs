@@ -1,0 +1,21 @@
+<%- include('./partials/head')  %> 
+
+<main class="main">
+    <section class="boxes">
+        <%artistData.forEach(element=>{%>
+        <article class="articles"> <% if (element.images.length!=0) { %>
+            <img src="<%=element.images[0].url%>" alt="">
+            <% } else{ %>
+            <img src="/assets/img/leer.png" alt="">
+            <% } %>
+            <div>
+                <h1><%=element.name%> </h1>
+                <a class="btn" href="/albums/<%=element.id%>">View Album</a>
+            </div>
+        </article>
+        <%})%>
+    </section>
+</main>
+
+
+<%- include('./partials/footer')  %> 

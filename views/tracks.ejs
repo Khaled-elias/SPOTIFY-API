@@ -1,0 +1,21 @@
+<%- include('./partials/head')  %> 
+
+
+<main class="main">
+    <section class="boxes">
+        <%artistData3.forEach(element=>{%>
+            <figure>
+                <figcaption><%= element.name %> </figcaption>
+                <audio
+                    controls
+                    src="<%= element.preview_url %> ">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                </audio>
+            </figure>
+        <%})%>
+    </section>
+</main>
+
+
+<%- include('./partials/footer')  %> 
